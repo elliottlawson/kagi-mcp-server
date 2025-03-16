@@ -11,7 +11,7 @@ A Node.js implementation of the Kagi MCP server that provides web search capabil
 
 ## Setup Instructions
 
-> Before anything, ensure you have access to the Kagi search API. It is currently in closed beta and available upon request. Please reach out to support@kagi.com for an invite.
+> Before anything, ensure you have access to the search API. It is currently in closed beta and available upon request. Please reach out to support@kagi.com for an invite.
 
 ### Prerequisites
 
@@ -23,8 +23,8 @@ A Node.js implementation of the Kagi MCP server that provides web search capabil
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/kagi-mcp-node.git
-cd kagi-mcp-node
+git clone https://github.com/elliottlawson/kagi-mcp-server2.git
+cd kagi-mcp-server2
 ```
 
 2. Install dependencies:
@@ -85,7 +85,7 @@ Then access MCP Inspector at `http://localhost:5173`. You may need to add your K
 ### Project Structure
 
 ```
-kagi-mcp-node/
+kagi-mcp-server2/
 ├── src/
 │   ├── index.ts           # Main entry point
 │   ├── kagi-client.ts     # Kagi API client
