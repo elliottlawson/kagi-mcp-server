@@ -23,8 +23,8 @@ A Node.js implementation of the Kagi MCP server that provides web search capabil
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/elliottlawson/kagi-mcp-server2.git
-cd kagi-mcp-server2
+git clone https://github.com/elliottlawson/kagi-mcp-server.git
+cd kagi-mcp-server
 ```
 
 2. Install dependencies:
@@ -85,7 +85,7 @@ Then access MCP Inspector at `http://localhost:5173`. You may need to add your K
 ### Project Structure
 
 ```
-kagi-mcp-server2/
+kagi-mcp-server/
 ├── src/
 │   ├── index.ts           # Main entry point
 │   ├── kagi-client.ts     # Kagi API client
