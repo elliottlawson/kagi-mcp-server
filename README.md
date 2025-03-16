@@ -8,6 +8,7 @@ A Node.js implementation of the Kagi MCP server that provides web search capabil
 - Support for multiple search queries in parallel
 - Formatted search results
 - Built with TypeScript and the official MCP SDK
+- Pre-built and ready to use (no build step required)
 
 ## Setup Instructions
 
@@ -16,8 +17,15 @@ A Node.js implementation of the Kagi MCP server that provides web search capabil
 ### Prerequisites
 
 - Node.js 18 or higher
-- npm or yarn
 - Kagi API key
+
+### Quick Start (No Installation)
+
+You can run the server directly without installing it using npx:
+
+```bash
+KAGI_API_KEY=your_api_key_here npx github:elliottlawson/kagi-mcp-server
+```
 
 ### Installation
 
@@ -27,17 +35,17 @@ git clone https://github.com/elliottlawson/kagi-mcp-server.git
 cd kagi-mcp-server
 ```
 
-2. Install dependencies:
+2. Run directly (no build required):
+```bash
+KAGI_API_KEY=your_api_key_here node build/index.js
+```
+
+If you want to modify the code, you'll need to install dependencies and rebuild:
+
 ```bash
 npm install
-```
-
-3. Build the project:
-```bash
 npm run build
 ```
-
-This will generate the `/build/index.js` file - your compiled MCP server script.
 
 ### Setup with Claude Desktop
 
@@ -47,8 +55,24 @@ Add the following MCP config to your Claude Desktop configuration:
 {
   "mcpServers": {
     "kagi": {
+      "command": "npx",
+      "args": ["github:elliottlawson/kagi-mcp-server"],
+      "env": {
+        "KAGI_API_KEY": "YOUR_API_KEY_HERE"
+      }
+    }
+  }
+}
+```
+
+Alternatively, if you've cloned the repository:
+
+```json
+{
+  "mcpServers": {
+    "kagi": {
       "command": "node",
-      "args": ["ABSOLUTE_PATH_TO_MCP_SERVER/build/index.js"],
+      "args": ["ABSOLUTE_PATH_TO_REPO/build/index.js"],
       "env": {
         "KAGI_API_KEY": "YOUR_API_KEY_HERE"
       }
@@ -63,7 +87,7 @@ Add the following MCP config to your Claude Desktop configuration:
 2. Configure your MCP:
    - Name: Kagi Search
    - Type: command
-   - Command: node ABSOLUTE_PATH_TO_MCP_SERVER/build/index.js
+   - Command: npx github:elliottlawson/kagi-mcp-server
    - Environment Variables: KAGI_API_KEY=YOUR_API_KEY_HERE
 
 ### Ask an AI Assistant a Question Requiring Search
@@ -75,7 +99,13 @@ For example: "Who was time's 2024 person of the year?"
 Run the MCP Inspector to debug the server:
 
 ```bash
-npx @modelcontextprotocol/inspector node ABSOLUTE_PATH_TO_MCP_SERVER/build/index.js
+npx @modelcontextprotocol/inspector npx github:elliottlawson/kagi-mcp-server
+```
+
+Or if you've cloned the repository:
+
+```bash
+npx @modelcontextprotocol/inspector node build/index.js
 ```
 
 Then access MCP Inspector at `http://localhost:5173`. You may need to add your Kagi API key in the environment variables in the inspector under `KAGI_API_KEY`.
@@ -91,6 +121,11 @@ kagi-mcp-server/
 │   ├── kagi-client.ts     # Kagi API client
 │   └── utils/
 │       └── formatter.ts   # Result formatting utilities
+├── build/                 # Pre-built JavaScript files
+│   ├── index.js           # Executable entry point
+│   ├── kagi-client.js
+│   └── utils/
+│       └── formatter.js
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -98,7 +133,7 @@ kagi-mcp-server/
 
 ### Building
 
-To build the project:
+If you make changes to the TypeScript code, rebuild the project:
 
 ```bash
 npm run build
@@ -116,3 +151,4 @@ npm start
 
 - The log level can be adjusted through the `DEBUG` environment variable
 - The server uses stdio for communication with the MCP client
+- The repository includes pre-built JavaScript files, so no build step is required to use it

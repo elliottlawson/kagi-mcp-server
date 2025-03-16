@@ -5,7 +5,7 @@ yarn-debug.log
 yarn-error.log
 
 # Build output
-build/
+# build/ - Commented out to include built files in the repository
 dist/
 
 # Environment variables

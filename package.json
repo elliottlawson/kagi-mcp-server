@@ -1,5 +1,5 @@
 {
-  "name": "kagi-mcp",
+  "name": "kagi-mcp-server",
   "version": "0.1.0",
   "description": "Kagi MCP server for web search using the Kagi API",
   "main": "build/index.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc && chmod +x build/index.js",
     "start": "node build/index.js",
-    "dev": "tsc && node build/index.js"
+    "dev": "ts-node src/index.ts"
   },
   "keywords": [
     "kagi",
@@ -26,5 +26,8 @@
   "devDependencies": {
     "@types/node": "^20.11.19",
     "typescript": "^5.3.3"
+  },
+  "bin": {
+    "kagi-mcp-server": "./build/index.js"
   }
 }
