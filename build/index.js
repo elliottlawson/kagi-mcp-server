@@ -19,7 +19,7 @@ const server = new McpServer({
     dependencies: ["axios", "@modelcontextprotocol/sdk"]
 });
 // Define search tool
-server.tool("search", "Perform web search based on one or more queries. Results are from all queries given. They are numbered continuously, so that a user may be able to refer to a result by a specific number.", {
+server.tool("kagi_web_search", "Perform web search using the Kagi search engine. Results are from all queries given. They are numbered continuously, so that a user may be able to refer to a result by a specific number.", {
     queries: z.array(z.string()).describe("One or more concise, keyword-focused search queries. Include essential context within each query for standalone use."),
 }, async ({ queries }) => {
     try {

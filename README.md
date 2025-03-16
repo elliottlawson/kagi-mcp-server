@@ -9,6 +9,7 @@ A Node.js implementation of the Kagi MCP server that provides web search capabil
 - Formatted search results
 - Built with TypeScript and the official MCP SDK
 - Pre-built and ready to use (no build step required)
+- Unique tool name (`kagi_web_search`) to avoid conflicts with other MCP servers
 
 ## Setup Instructions
 
@@ -92,7 +93,9 @@ Alternatively, if you've cloned the repository:
 
 ### Ask an AI Assistant a Question Requiring Search
 
-For example: "Who was time's 2024 person of the year?"
+For example: "Use Kagi to search for who was time's 2024 person of the year?"
+
+The AI will use the `kagi_web_search` tool to perform the search, avoiding conflicts with other search tools.
 
 ## Debugging
 
@@ -152,3 +155,4 @@ npm start
 - The log level can be adjusted through the `DEBUG` environment variable
 - The server uses stdio for communication with the MCP client
 - The repository includes pre-built JavaScript files, so no build step is required to use it
+- The tool is named `kagi_web_search` to avoid conflicts with other MCP servers that might have a generic `search` tool
